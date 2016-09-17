@@ -10,9 +10,14 @@
 		FF700E731D8DB91600A295B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF700E721D8DB91600A295B4 /* Assets.xcassets */; };
 		FF700E7A1D8DB91700A295B4 /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FF700E791D8DB91700A295B4 /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FF700E7F1D8DB91700A295B4 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF700E7E1D8DB91700A295B4 /* Messages.framework */; };
-		FF700E821D8DB91700A295B4 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF700E811D8DB91700A295B4 /* MessagesViewController.swift */; };
-		FF700E851D8DB91700A295B4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF700E831D8DB91700A295B4 /* MainInterface.storyboard */; };
 		FF700E871D8DB91700A295B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF700E861D8DB91700A295B4 /* Assets.xcassets */; };
+		FF700E931D8DB93E00A295B4 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF700E921D8DB93E00A295B4 /* MessagesViewController.swift */; };
+		FF700E951D8DB95800A295B4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF700E941D8DB95800A295B4 /* MainInterface.storyboard */; };
+		FF700E961D8DB95800A295B4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF700E941D8DB95800A295B4 /* MainInterface.storyboard */; };
+		FF700E981D8DD36900A295B4 /* DefaultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF700E971D8DD36900A295B4 /* DefaultView.xib */; };
+		FF700E9A1D8DD3CC00A295B4 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF700E991D8DD3CC00A295B4 /* DefaultView.swift */; };
+		FF700E9D1D8DD48F00A295B4 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF700E9B1D8DD48F00A295B4 /* MessageView.swift */; };
+		FF700E9E1D8DD48F00A295B4 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF700E9C1D8DD48F00A295B4 /* MessageView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,13 +50,24 @@
 		FF700E741D8DB91600A295B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF700E791D8DB91700A295B4 /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF700E7E1D8DB91700A295B4 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		FF700E811D8DB91700A295B4 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		FF700E841D8DB91700A295B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		FF700E861D8DB91700A295B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF700E881D8DB91700A295B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF700E921D8DB93E00A295B4 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		FF700E941D8DB95800A295B4 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		FF700E971D8DD36900A295B4 /* DefaultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultView.xib; sourceTree = "<group>"; };
+		FF700E991D8DD3CC00A295B4 /* DefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
+		FF700E9B1D8DD48F00A295B4 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		FF700E9C1D8DD48F00A295B4 /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0FE1DF0CFA70B36F61345F09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF700E761D8DB91700A295B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -102,12 +118,32 @@
 		FF700E801D8DB91700A295B4 /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				FF700E811D8DB91700A295B4 /* MessagesViewController.swift */,
-				FF700E831D8DB91700A295B4 /* MainInterface.storyboard */,
+				FF700E941D8DB95800A295B4 /* MainInterface.storyboard */,
+				FF700E921D8DB93E00A295B4 /* MessagesViewController.swift */,
+				FF700EA21D8DF34300A295B4 /* Message View */,
+				FF700EA11D8DF33300A295B4 /* Default View */,
 				FF700E861D8DB91700A295B4 /* Assets.xcassets */,
 				FF700E881D8DB91700A295B4 /* Info.plist */,
 			);
 			path = MessagesExtension;
+			sourceTree = "<group>";
+		};
+		FF700EA11D8DF33300A295B4 /* Default View */ = {
+			isa = PBXGroup;
+			children = (
+				FF700E971D8DD36900A295B4 /* DefaultView.xib */,
+				FF700E991D8DD3CC00A295B4 /* DefaultView.swift */,
+			);
+			name = "Default View";
+			sourceTree = "<group>";
+		};
+		FF700EA21D8DF34300A295B4 /* Message View */ = {
+			isa = PBXGroup;
+			children = (
+				FF700E9B1D8DD48F00A295B4 /* MessageView.swift */,
+				FF700E9C1D8DD48F00A295B4 /* MessageView.xib */,
+			);
+			name = "Message View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +155,7 @@
 			buildPhases = (
 				FF700E6D1D8DB91600A295B4 /* Resources */,
 				FF700E8E1D8DB91700A295B4 /* Embed App Extensions */,
+				0FE1DF0CFA70B36F61345F09 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,11 +197,13 @@
 					FF700E6E1D8DB91600A295B4 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = RXHJKR4N7Q;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					FF700E781D8DB91700A295B4 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = RXHJKR4N7Q;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -194,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF700E731D8DB91600A295B4 /* Assets.xcassets in Resources */,
+				FF700E951D8DB95800A295B4 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,8 +241,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF700E9E1D8DD48F00A295B4 /* MessageView.xib in Resources */,
 				FF700E871D8DB91700A295B4 /* Assets.xcassets in Resources */,
-				FF700E851D8DB91700A295B4 /* MainInterface.storyboard in Resources */,
+				FF700E981D8DD36900A295B4 /* DefaultView.xib in Resources */,
+				FF700E961D8DB95800A295B4 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +255,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF700E821D8DB91700A295B4 /* MessagesViewController.swift in Sources */,
+				FF700E9D1D8DD48F00A295B4 /* MessageView.swift in Sources */,
+				FF700E9A1D8DD3CC00A295B4 /* DefaultView.swift in Sources */,
+				FF700E931D8DB93E00A295B4 /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,17 +270,6 @@
 			targetProxy = FF700E7B1D8DB91700A295B4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		FF700E831D8DB91700A295B4 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF700E841D8DB91700A295B4 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FF700E891D8DB91700A295B4 /* Debug */ = {
@@ -334,12 +367,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = RXHJKR4N7Q;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Sean-Murphy.SecureMessage2.MessagesExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -348,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = RXHJKR4N7Q;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -363,10 +399,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = RXHJKR4N7Q;
 				INFOPLIST_FILE = SecureMessage2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Sean-Murphy.SecureMessage2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -377,8 +416,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = RXHJKR4N7Q;
 				INFOPLIST_FILE = SecureMessage2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Sean-Murphy.SecureMessage2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -405,6 +446,7 @@
 				FF700E8D1D8DB91700A295B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF700E8F1D8DB91700A295B4 /* Build configuration list for PBXNativeTarget "SecureMessage2" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +455,7 @@
 				FF700E911D8DB91700A295B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

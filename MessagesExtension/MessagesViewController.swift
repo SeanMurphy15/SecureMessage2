@@ -2,19 +2,27 @@
 //  MessagesViewController.swift
 //  MessagesExtension
 //
-//  Created by Sean Murphy on 9/17/16.
+//  Created by Sean Murphy on 9/16/16.
 //  Copyright © 2016 Sean Murphy. All rights reserved.
 //
 
 import UIKit
 import Messages
+import LocalAuthentication
+
 
 class MessagesViewController: MSMessagesAppViewController {
-    
+
+	var currentConversation : MSConversation?
+	var rawMessage = ""
+
+	let defaultView = DefaultView.instanceFromNib()
+	let messageView = MessageView.instanceFromNib()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+			self.view.addSubview(defaultView)
+			messageView.delegate = self
+	}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -24,17 +32,30 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: - Conversation Handling
     
     override func willBecomeActive(with conversation: MSConversation) {
-        // Called when the extension is about to move from the inactive to active state.
-        // This will happen when the extension is about to present UI.
-        
-        // Use this method to configure the extension and restore previously stored state.
-    }
-    
+
+			currentConversation = conversation
+	}
+
+	override func willSelect(_ message: MSMessage, conversation: MSConversation) {
+
+	}
+	override func didSelect(_ message: MSMessage, conversation: MSConversation) {
+
+		if let secretMessage = message.url?.path {
+
+			messageView.textView.text = secretMessage
+			messageView.replyButton.isHidden = false
+			messageView.enterButton.isHidden = true
+
+	}
+
+		
+	}
+
     override func didResignActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the active to inactive state.
         // This will happen when the user dissmises the extension, changes to a different
         // conversation or quits Messages.
-        
         // Use this method to release shared resources, save user data, invalidate timers,
         // and store enough state information to restore your extension to its current state
         // in case it is terminated later.
@@ -59,14 +80,158 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called before the extension transitions to a new presentation style.
-    
+		
         // Use this method to prepare for the change in presentation style.
     }
+
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called after the extension transitions to a new presentation style.
-    
-        // Use this method to finalize any behaviors associated with the change in presentation style.
+			switch presentationStyle {
+			case .expanded:
+				self.view.addSubview(messageView)
+				messageView.frame = self.view.bounds
+				messageView.updateUI()
+			self.defaultView.removeFromSuperview()
+			case .compact:
+				self.view.addSubview(defaultView)
+				defaultView.frame = self.view.bounds
+				self.messageView.removeFromSuperview()
+			}
     }
+}
+
+//TEXTFIELD
+
+extension MessagesViewController: MessageViewDelegate{
+
+	func TextViewContent(content: String) {
+
+		rawMessage = content
+	}
+
+	func EnterButtonPressed(bool: Bool) {
+		if bool {
+			authenticateWithTouchID()
+		}
+	}
+}
+
+//TOUCH ID
+
+extension MessagesViewController{
+
+	func authenticateWithTouchID() {
+		let authenticationContext = LAContext()
+		var error:NSError?
+		guard authenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+
+			showAlertViewIfNoBiometricSensorHasBeenDetected()
+			return
+
+		}
+
+		authenticationContext.evaluatePolicy(
+			.deviceOwnerAuthenticationWithBiometrics,
+			localizedReason: "Only awesome people are allowed",
+			reply: { [unowned self] (success, error) -> Void in
+
+				if( success ) {
+
+					let message = MSMessage()
+					let layout = MSMessageTemplateLayout()
+					layout.caption = "Secure Message"
+					message.layout = layout
+					message.url = URL(string: self.rawMessage)
+					print("ORIGINAL MESSAGE \(message.url)")
+					self.currentConversation?.insert(message, completionHandler: nil)
+					self.dismiss()
+
+
+				}else {
+
+					// Check if there is an error
+					if let error = error {
+
+						let message = self.errorMessageForLAErrorCode(errorCode: error)
+						self.showAlertViewAfterEvaluatingPolicyWithMessage(message: message)
+
+					}
+
+				}
+
+			})
+	}
+
+	func errorMessageForLAErrorCode( errorCode:Error ) -> String{
+
+		var message = ""
+
+		switch errorCode {
+
+		case LAError.appCancel:
+			message = "Authentication was cancelled by application"
+
+		case LAError.authenticationFailed:
+			message = "The user failed to provide valid credentials"
+
+		case LAError.invalidContext:
+			message = "The context is invalid"
+
+		case LAError.passcodeNotSet:
+			message = "Passcode is not set on the device"
+
+		case LAError.systemCancel:
+			message = "Authentication was cancelled by the system"
+
+		case LAError.touchIDLockout:
+			message = "Too many failed attempts."
+
+		case LAError.touchIDNotAvailable:
+			message = "TouchID is not available on the device"
+
+		case LAError.userCancel:
+			message = "The user did cancel"
+
+		case LAError.userFallback:
+			message = "The user chose to use the fallback"
+
+		default:
+			message = "Did not find error code on LAError object"
+			
+		}
+		
+		return message
+		
+	}
 
 }
+
+// ALERTS
+
+extension MessagesViewController {
+	func showAlertWithTitle( title:String, message:String ) {
+
+		let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+		let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+		alertVC.addAction(okAction)
+
+		DispatchQueue.main.async(execute: {
+			self.present(alertVC, animated: true, completion: nil)
+		})
+	}
+
+	func showAlertViewAfterEvaluatingPolicyWithMessage( message:String ){
+
+		showAlertWithTitle(title: "Error", message: message)
+
+	}
+
+
+	func showAlertViewIfNoBiometricSensorHasBeenDetected(){
+
+		showAlertWithTitle(title: "Error", message: "This device does not have a TouchID sensor.")
+		
+	}
+}
+
