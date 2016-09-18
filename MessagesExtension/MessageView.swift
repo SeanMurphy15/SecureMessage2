@@ -27,7 +27,11 @@ class MessageView: UIView{
 	}
 	@IBOutlet weak var textView: UITextView!
 	@IBOutlet weak var enterButton: UIButton!
-	@IBOutlet weak var replyButton: UIButton!
+	@IBOutlet weak var replyButton: UIButton! {
+		didSet{
+			replyButton.isHidden = true
+		}
+	}
 
 	@IBAction func enterButtonPressed(_ sender: AnyObject) {
 		delegate?.EnterButtonPressed!(bool: true)
@@ -39,13 +43,16 @@ class MessageView: UIView{
 
 		textView.text = ""
 		textView.becomeFirstResponder()
-	
+		replyButton.isHidden = true
+		enterButton.isHidden = false
+
 	}
 
 	func updateUI(){
 
-			textView.layer.cornerRadius = 10
-			textView.layer.borderWidth = 2
-			textView.layer.borderColor = UIColor.lightGray.cgColor
+		textView.layer.cornerRadius = 10
+		textView.layer.borderWidth = 2
+		textView.layer.borderColor = UIColor.lightGray.cgColor
+		textView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
 	}
 }

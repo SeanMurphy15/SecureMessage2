@@ -13,43 +13,53 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brick-background" translatesAutoresizingMaskIntoConstraints="NO" id="Kbp-w0-UjD">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="940" id="82r-Sm-NjW"/>
+                    </constraints>
+                </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AQZ-qp-ydH">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="183" id="REF-sD-AWg"/>
+                        <constraint firstAttribute="height" constant="183" id="gtB-KW-OVb"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Damascus" family="Damascus" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEK-KI-usZ">
-                    <constraints>
-                        <constraint firstAttribute="width" constant="46" id="uhE-w2-UfK"/>
-                    </constraints>
-                    <state key="normal" title="Reply"/>
-                    <connections>
-                        <action selector="replyButtonPressed:" destination="-1" eventType="touchUpInside" id="eMx-zJ-6jd"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUj-q7-Yhn">
                     <constraints>
-                        <constraint firstAttribute="height" constant="53" id="Jqu-Wv-mPa"/>
-                        <constraint firstAttribute="width" secondItem="yUj-q7-Yhn" secondAttribute="height" multiplier="61:53" id="v4k-PU-5k9"/>
+                        <constraint firstAttribute="height" constant="53" id="0ls-5i-Mx5"/>
+                        <constraint firstAttribute="width" secondItem="yUj-q7-Yhn" secondAttribute="height" multiplier="61:53" id="Rdd-m5-dkV"/>
                     </constraints>
                     <state key="normal" title="Button" image="fingerprint-icon"/>
                     <connections>
                         <action selector="enterButtonPressed:" destination="-1" eventType="touchUpInside" id="pqc-Uu-hMs"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEK-KI-usZ">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="Zeh-BT-Nuh"/>
+                    </constraints>
+                    <state key="normal" title="Reply"/>
+                    <connections>
+                        <action selector="replyButtonPressed:" destination="-1" eventType="touchUpInside" id="eMx-zJ-6jd"/>
+                    </connections>
+                </button>
             </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="AQZ-qp-ydH" firstAttribute="centerX" secondItem="X7V-Wk-MCl" secondAttribute="centerX" id="83e-kM-wZe"/>
-                <constraint firstItem="AQZ-qp-ydH" firstAttribute="leading" secondItem="X7V-Wk-MCl" secondAttribute="leading" constant="16" id="EhG-Gw-LM8"/>
-                <constraint firstItem="AQZ-qp-ydH" firstAttribute="centerX" secondItem="yUj-q7-Yhn" secondAttribute="centerX" id="HPM-FR-FQA"/>
-                <constraint firstItem="AQZ-qp-ydH" firstAttribute="top" secondItem="X7V-Wk-MCl" secondAttribute="top" constant="113" id="Lbs-yB-xsJ"/>
-                <constraint firstItem="yUj-q7-Yhn" firstAttribute="top" secondItem="AQZ-qp-ydH" secondAttribute="bottom" constant="8" symbolic="YES" id="bKs-ek-Ss5"/>
-                <constraint firstItem="AQZ-qp-ydH" firstAttribute="trailing" secondItem="cEK-KI-usZ" secondAttribute="trailing" id="c4F-Rf-Xec"/>
-                <constraint firstItem="yUj-q7-Yhn" firstAttribute="top" secondItem="cEK-KI-usZ" secondAttribute="top" id="e9p-iw-W44"/>
-                <constraint firstItem="cEK-KI-usZ" firstAttribute="leading" secondItem="yUj-q7-Yhn" secondAttribute="trailing" constant="95" id="nkQ-4x-c83"/>
+                <constraint firstItem="Kbp-w0-UjD" firstAttribute="centerX" secondItem="yUj-q7-Yhn" secondAttribute="centerX" id="1iS-L9-Wkp"/>
+                <constraint firstItem="AQZ-qp-ydH" firstAttribute="centerX" secondItem="yUj-q7-Yhn" secondAttribute="centerX" id="4Cn-vD-BYC"/>
+                <constraint firstItem="yUj-q7-Yhn" firstAttribute="top" secondItem="AQZ-qp-ydH" secondAttribute="bottom" constant="8" symbolic="YES" id="6ev-2i-Weg"/>
+                <constraint firstItem="AQZ-qp-ydH" firstAttribute="trailing" secondItem="cEK-KI-usZ" secondAttribute="trailing" id="DZD-6e-lWY"/>
+                <constraint firstItem="AQZ-qp-ydH" firstAttribute="top" secondItem="X7V-Wk-MCl" secondAttribute="top" constant="113" id="YcL-aU-gnh"/>
+                <constraint firstItem="AQZ-qp-ydH" firstAttribute="leading" secondItem="X7V-Wk-MCl" secondAttribute="leading" constant="16" id="YwS-Ff-46o"/>
+                <constraint firstAttribute="bottom" secondItem="Kbp-w0-UjD" secondAttribute="bottom" id="lPB-Re-1bU"/>
+                <constraint firstItem="cEK-KI-usZ" firstAttribute="leading" secondItem="yUj-q7-Yhn" secondAttribute="trailing" constant="95" id="qHg-Jb-xev"/>
+                <constraint firstItem="Kbp-w0-UjD" firstAttribute="centerX" secondItem="X7V-Wk-MCl" secondAttribute="centerX" id="rkQ-P0-gYL"/>
+                <constraint firstItem="Kbp-w0-UjD" firstAttribute="top" secondItem="X7V-Wk-MCl" secondAttribute="top" id="sO6-ew-w8v"/>
+                <constraint firstItem="yUj-q7-Yhn" firstAttribute="top" secondItem="cEK-KI-usZ" secondAttribute="top" id="yH9-Qu-sDi"/>
             </constraints>
             <connections>
                 <outlet property="enterButton" destination="yUj-q7-Yhn" id="10E-Yv-rKt"/>
@@ -60,6 +70,7 @@
         </view>
     </objects>
     <resources>
+        <image name="brick-background" width="1440" height="900"/>
         <image name="fingerprint-icon" width="350" height="350"/>
     </resources>
 </document>

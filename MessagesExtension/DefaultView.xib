@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,55 +13,76 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Z0-XO-KfU">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <imageView userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brick-background" translatesAutoresizingMaskIntoConstraints="NO" id="jRI-RH-5l2">
                     <constraints>
-                        <constraint firstAttribute="height" constant="151" id="qZn-dR-ExF"/>
+                        <constraint firstAttribute="width" constant="827" id="mI3-VT-hBb"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJB-ro-t0G">
-                    <constraints>
-                        <constraint firstAttribute="height" constant="32" id="shB-xe-3oW"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ot3-4W-463">
                     <constraints>
-                        <constraint firstAttribute="height" constant="75" id="1dY-1T-VeB"/>
+                        <constraint firstAttribute="height" constant="75" id="mRs-vB-Jwz"/>
                     </constraints>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <string key="text">Open the "Secure Message" application and select the secured message in the conversation. You'll be prompted to unlock the message with your fingerprint!</string>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Damascus" family="Damascus" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App must be Enabled To Read" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMO-02-IxJ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable The Application" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IMO-02-IxJ">
                     <constraints>
-                        <constraint firstAttribute="height" constant="33" id="reh-MJ-4x1"/>
+                        <constraint firstAttribute="height" constant="33" id="Xx6-3W-0QF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="DamascusBold" family="Damascus" pointSize="20"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="private-eye-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ap0-j2-5wN">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Ap0-j2-5wN" secondAttribute="height" multiplier="2:1" id="Xc8-gA-7UX"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light-beam" translatesAutoresizingMaskIntoConstraints="NO" id="7Z0-XO-KfU">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="297" id="Y7M-8C-Fkw"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light-beam-left" translatesAutoresizingMaskIntoConstraints="NO" id="Nq8-eO-2bv">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="297" id="NOA-sG-umc"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="IMO-02-IxJ" firstAttribute="leading" secondItem="SJF-LN-xW1" secondAttribute="leading" constant="23" id="FY0-cG-0p4"/>
-                <constraint firstItem="7Z0-XO-KfU" firstAttribute="centerX" secondItem="WJB-ro-t0G" secondAttribute="centerX" id="H7m-LQ-6Gh"/>
-                <constraint firstItem="7Z0-XO-KfU" firstAttribute="leading" secondItem="Ot3-4W-463" secondAttribute="leading" id="MWK-fj-xdj"/>
-                <constraint firstItem="7Z0-XO-KfU" firstAttribute="top" secondItem="WJB-ro-t0G" secondAttribute="bottom" constant="11" id="MeA-DK-dkz"/>
-                <constraint firstItem="IMO-02-IxJ" firstAttribute="centerX" secondItem="Ot3-4W-463" secondAttribute="centerX" id="Odb-Yw-69l"/>
-                <constraint firstItem="7Z0-XO-KfU" firstAttribute="trailing" secondItem="Ot3-4W-463" secondAttribute="trailing" id="POV-X2-pBY"/>
-                <constraint firstItem="WJB-ro-t0G" firstAttribute="top" secondItem="SJF-LN-xW1" secondAttribute="top" constant="20" id="adZ-qJ-ISm"/>
-                <constraint firstItem="7Z0-XO-KfU" firstAttribute="centerX" secondItem="SJF-LN-xW1" secondAttribute="centerX" id="cDf-P3-JW4"/>
-                <constraint firstItem="IMO-02-IxJ" firstAttribute="top" secondItem="7Z0-XO-KfU" secondAttribute="bottom" constant="61" id="d6B-aN-dI8"/>
-                <constraint firstItem="Ot3-4W-463" firstAttribute="top" secondItem="IMO-02-IxJ" secondAttribute="bottom" constant="8" symbolic="YES" id="dAP-jL-SAM"/>
-                <constraint firstItem="7Z0-XO-KfU" firstAttribute="leading" secondItem="SJF-LN-xW1" secondAttribute="leading" constant="16" id="wiA-hd-XMA"/>
+                <constraint firstItem="Nq8-eO-2bv" firstAttribute="top" secondItem="SJF-LN-xW1" secondAttribute="top" constant="40" id="2Ag-xC-HIw"/>
+                <constraint firstItem="IMO-02-IxJ" firstAttribute="top" secondItem="Ap0-j2-5wN" secondAttribute="bottom" constant="95" id="9fa-i3-2Zw"/>
+                <constraint firstItem="Ot3-4W-463" firstAttribute="top" secondItem="IMO-02-IxJ" secondAttribute="bottom" constant="8" symbolic="YES" id="BfX-E8-wyW"/>
+                <constraint firstItem="jRI-RH-5l2" firstAttribute="centerY" secondItem="Ot3-4W-463" secondAttribute="centerY" id="EFH-Wn-9R3"/>
+                <constraint firstItem="IMO-02-IxJ" firstAttribute="top" secondItem="Nq8-eO-2bv" secondAttribute="bottom" constant="28" id="Esj-FF-3Id"/>
+                <constraint firstItem="Ap0-j2-5wN" firstAttribute="centerX" secondItem="IMO-02-IxJ" secondAttribute="centerX" id="GcX-dg-ayc"/>
+                <constraint firstItem="Ot3-4W-463" firstAttribute="centerY" secondItem="SJF-LN-xW1" secondAttribute="centerY" id="INM-5t-ICJ"/>
+                <constraint firstItem="Ap0-j2-5wN" firstAttribute="leading" secondItem="SJF-LN-xW1" secondAttribute="leading" constant="87" id="KUm-1m-6vg"/>
+                <constraint firstItem="Nq8-eO-2bv" firstAttribute="bottom" secondItem="7Z0-XO-KfU" secondAttribute="bottom" id="LRC-JW-Tft"/>
+                <constraint firstAttribute="trailing" secondItem="7Z0-XO-KfU" secondAttribute="trailing" constant="-95" id="N4h-x4-oOp"/>
+                <constraint firstItem="Nq8-eO-2bv" firstAttribute="top" secondItem="7Z0-XO-KfU" secondAttribute="top" id="Xxv-LD-ZBe"/>
+                <constraint firstItem="Ap0-j2-5wN" firstAttribute="top" secondItem="SJF-LN-xW1" secondAttribute="top" constant="60" id="aha-nt-u5c"/>
+                <constraint firstItem="jRI-RH-5l2" firstAttribute="top" secondItem="SJF-LN-xW1" secondAttribute="top" id="asm-BW-F6z"/>
+                <constraint firstItem="Ot3-4W-463" firstAttribute="leading" secondItem="SJF-LN-xW1" secondAttribute="leading" constant="70" id="bcy-Dw-fXR"/>
+                <constraint firstItem="jRI-RH-5l2" firstAttribute="centerX" secondItem="Ap0-j2-5wN" secondAttribute="centerX" id="fq7-Ox-2k7"/>
+                <constraint firstItem="Ap0-j2-5wN" firstAttribute="centerX" secondItem="SJF-LN-xW1" secondAttribute="centerX" id="hWf-la-HNN"/>
+                <constraint firstItem="IMO-02-IxJ" firstAttribute="centerX" secondItem="Ot3-4W-463" secondAttribute="centerX" id="lfi-IE-i7J"/>
+                <constraint firstItem="7Z0-XO-KfU" firstAttribute="leading" secondItem="Nq8-eO-2bv" secondAttribute="trailing" constant="8" symbolic="YES" id="qlU-fC-wQE"/>
             </constraints>
+            <connections>
+                <outlet property="animationImageView" destination="7Z0-XO-KfU" id="7Vp-Cy-GBv"/>
+                <outlet property="animationImageView2" destination="Nq8-eO-2bv" id="UCf-Mw-l8U"/>
+            </connections>
             <point key="canvasLocation" x="16.5" y="58.5"/>
         </view>
     </objects>
     <resources>
-        <image name="lock-icon" width="512" height="512"/>
+        <image name="brick-background" width="1440" height="900"/>
+        <image name="light-beam" width="772" height="492"/>
+        <image name="light-beam-left" width="772" height="492"/>
+        <image name="private-eye-logo" width="500" height="230"/>
     </resources>
 </document>
