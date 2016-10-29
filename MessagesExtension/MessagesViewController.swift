@@ -45,9 +45,9 @@ class MessagesViewController: MSMessagesAppViewController {
 
 		if let secretMessage = message.url?.path {
 
-			messageView.textView.text = secretMessage
-			messageView.replyButton.isHidden = false
-			messageView.enterButton.isHidden = true
+			self.messageView.textView.text = secretMessage
+			self.messageView.replyButton.isHidden = false
+			self.messageView.enterButton.isHidden = true
 
 		}
 
@@ -114,7 +114,7 @@ extension MessagesViewController: MessageViewDelegate{
 
 	func EnterButtonPressed(bool: Bool) {
 		if bool {
-			authenticateWithTouchID()
+			authenticateSentMessageWithTouchID()
 		}
 	}
 }
@@ -123,7 +123,7 @@ extension MessagesViewController: MessageViewDelegate{
 
 extension MessagesViewController{
 
-	func authenticateWithTouchID() {
+	func authenticateSentMessageWithTouchID() {
 		let authenticationContext = LAContext()
 		var error:NSError?
 		guard authenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
@@ -135,7 +135,7 @@ extension MessagesViewController{
 
 		authenticationContext.evaluatePolicy(
 			.deviceOwnerAuthenticationWithBiometrics,
-			localizedReason: "Only awesome people are allowed",
+			localizedReason: "Only the owner of this device is able to view secret messages!",
 			reply: { [unowned self] (success, error) -> Void in
 
 				if( success ) {
@@ -172,6 +172,7 @@ extension MessagesViewController{
 
 			})
 	}
+
 
 	func errorMessageForLAErrorCode( errorCode:Error ) -> String{
 
